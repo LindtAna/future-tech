@@ -1,0 +1,40 @@
+@use '../helpers' as *;
+
+.button{
+    display: inline-flex;
+    justify-content: center;
+    min-width: rem(137);
+    padding: rem(18) rem(24);
+    font-size: rem(18);
+    white-space: nowrap;
+    color: var(--colour-grey-60);
+    background-color: var(--colour-dark);
+    border: var(--border);
+    border-radius: rem(12);
+
+    @include laptop{
+        min-width: rem(103);
+        padding: rem(14) rem(20);
+        font-size: rem(14);
+        border-radius: rem(8);
+    }
+
+    @include hover{
+        color:var(--colour-yellow);
+        border-color:var(--colour-yellow);
+        background-color: var(--colour-dark-10);
+    }
+
+    &--yellow{
+        background-color: var(--colour-yellow);
+        border-color:var(--colour-yellow);
+        color:var(--colour-dark);
+        font-weight: 500;
+        border-radius: rem(8);
+    }
+
+    &--dark{
+       background-color: var(--colour-dark-10); 
+    }
+}
+

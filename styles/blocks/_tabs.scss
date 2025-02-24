@@ -1,0 +1,126 @@
+@use '../helpers' as *;
+
+.tabs {
+    &__header {
+        border-bottom: var(--border);
+
+        @include tablet {
+            overflow-x: auto;
+        }
+    }
+
+    &__buttons {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: rem(20);
+        padding-block: fluid(50, 20);
+
+        @include laptop {
+            column-gap: rem(14);
+        }
+
+        @include tablet {
+            width: max-content;
+        }
+
+        &--compact{
+            display: inline-flex;
+            padding: rem(10);
+            background-color: var(--colour-dark);
+            border-radius: rem(10);
+            column-gap: rem(10);
+
+            &.is-active{
+                background: var(--colour-dark-15);
+            }
+
+            .tabs__button{
+                padding-block: rem(18);
+
+                @include laptop{
+                    padding-block: rem(14);
+                }
+            }
+        }
+    }
+
+
+
+    &__button {
+        padding: fluid(30, 18) rem(11);
+        border: var(--border);
+        border-radius: rem(8);
+        font-size: rem(18);
+        color: var(--colour-grey-60);
+        background-color: transparent;
+
+        @include laptop {
+            font-size: rem(14);
+        }
+
+        @include hover {
+            background-color: var(--colour-dark-20);
+            color: var(--colour-grey-50);
+        }
+
+        &.is-active {
+            background-color: var(--colour-dark-10);
+            color: var(--colour-white);
+            font-weight: 500;
+            pointer-events: none;
+        }
+    }
+
+    &__content {
+        display: flex; 
+        flex-direction: column;
+
+        &:not(#tabpanel-1){
+        row-gap: rem(30);
+        }
+
+        &:not(.is-active) {
+            display: none;
+        }
+
+        &:focus-visible {
+            outline-offset: -1rem;
+        }
+
+        &-image {
+            margin-left: auto;
+            margin-right: auto;
+            height: fluid(332, 169);
+            object-fit: cover;
+            border-radius: rem(12);
+
+            @include laptop {
+                border-radius: rem(10);
+            }
+        }
+
+        &-text {
+            color: var(--colour-white);
+        }
+
+        &-link {
+            align-self: start;
+        }
+
+        &:not(#tabpanel-1) {
+          padding: rem(30) fluid(160, 40) rem(30);
+        }
+
+        &--ebook-image{
+            margin-left: 0;
+            margin-right: auto;
+            object-fit: cover;
+            border-radius: rem(12);
+
+            @include laptop {
+                border-radius: rem(10);
+            }
+        }
+
+    }
+}
