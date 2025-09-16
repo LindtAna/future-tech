@@ -5,6 +5,8 @@ import ExpandableContentCollection from './ExpandableContent.js'
 import InputMaskCollection from './InputMask.js'
 import SelectCollection from './Select.js'
 import defineScrollBarWidthCSSVar from './utils/defineScrollBarWidthCSSVar.js'
+import './HeroAnimation.js'
+
 
 new Header()
 new TabsCollection()

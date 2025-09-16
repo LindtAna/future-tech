@@ -1,6 +1,10 @@
+// Helfer-Funktionen und Mixins aus '../helpers'
 @use '../helpers' as *;
 
+
 .hero {
+
+  // ab Tablet-Ansicht als Grid mit zwei Spalten
   &__main {
     @include tablet-above {
       display: grid;
@@ -11,7 +15,7 @@
     }
   }
 
-
+  // Text-Container
   &__body {
     grid-area: body;
     padding-top: rem(150);
@@ -24,15 +28,15 @@
     }
 
     @include tablet {
-      padding-right: 0;
       padding-top: rem(40);
+      padding-right: 0;
       padding-bottom: rem(30);
     }
   }
 
+  // Untertitel: flüssige Schriftgröße, Akzent-Font, Farbgebung
   &__subtitle {
     @include fluid-text(30, 18);
-
     font-family: var(--font-family-accent);
     font-weight: 500;
     color: var(--colour-dark-40);
@@ -46,6 +50,7 @@
     }
   }
 
+  // Haupttitel mit responsive Margin-Bottom
   &__title {
     &:not(:last-child) {
       margin-bottom: rem(20);
@@ -56,12 +61,13 @@
     }
   }
 
+  // Ressourcen-Vorschau (enthält das Three.js-Canvas und Overlay-Elemente)
   &__resources-preview {
     grid-area: resources-preview;
+    position: relative;
+    overflow: hidden;
     padding-left: rem(80);
     padding-bottom: rem(80);
-    background:
-      url('../../images/resources-preview/bg.png') 0 0/cover no-repeat;
 
     @include laptop {
       padding-left: rem(50);
@@ -76,14 +82,27 @@
       width: 100vw;
       margin-left: calc(var(--container-padding-x) * -1);
       padding: rem(100) rem(40) rem(40);
-      background-image: url('../../images/resources-preview/bg_tablet.png');
       background-size: contain;
+    }
+
+    // Styles für das WebGL-Canvas (von JS über .webgl referenziert)
+    .webgl {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      outline: none;
+      // Aktiviert Maus- und Touch-Interaktionen für OrbitControls
+      pointer-events: auto;
+      background-color: var(--colour-yellow);
     }
   }
 
+  // Metriken-Bereich unterhalb der Vorschau
   &__metrics {
     grid-area: metrics;
-
 
     @include tablet-above {
       border-top: var(--border);
@@ -97,8 +116,8 @@
     }
   }
 
+  // Liste mit responsivem Grid und Borders
   &__advantages {
-
     border-block: var(--border);
 
     &-list {
@@ -106,17 +125,15 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
       }
-
     }
 
     &-item {
+      // Horizontales Padding variabel je nach Breakpoint
       --paddingX: #{rem(80)};
-
       padding-block: rem(50);
 
       @include laptop {
         --paddingX: #{rem(50)};
-
         padding-block: rem(40);
       }
 
@@ -131,15 +148,22 @@
         }
       }
 
-      @include tablet{
+      @include tablet {
         padding-block: rem(30);
 
-        &:not(:last-child){
-          border-bottom: var(--border) ;
+        &:not(:last-child) {
+          border-bottom: var(--border);
         }
       }
-
-      
     }
   }
+}
+
+
+.resources-preview__team,
+.resources-preview__body,
+.resources-preview__button {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
 }

@@ -173,6 +173,8 @@ svg * {
   --colour-grey-50: #7E7E81;
   --colour-grey-60: #98989A;
   --colour-yellow:#FFD11A;
+  --colour-dark-yellow: #5B480B;
+  --colour-light-yellow: #ffeea8;
   --colour-red: #FF5500;
   --border: 0.0625rem solid var(--colour-dark-15);
   --shadow: 0 0 0 0.1875rem #191919;
@@ -202,8 +204,7 @@ svg * {
   border: 0 !important;
   padding: 0 !important;
   white-space: nowrap !important;
-  -webkit-clip-path: inset(100%) !important;
-          clip-path: inset(100%) !important;
+  clip-path: inset(100%) !important;
   clip: rect(0 0 0 0) !important;
   overflow: hidden !important;
 }
@@ -270,7 +271,7 @@ svg * {
   translate: 0 -50%;
   content: "";
   right: 0;
-  background: url("../icons/arrow-top-right_black.svg") center no-repeat var(--colour-yellow);
+  background: url("../../icons/arrow-top-right_black.svg") center no-repeat var(--colour-yellow);
   border-radius: 50%;
 }
 
@@ -441,13 +442,13 @@ button[aria-label]::before {
   }
 }
 .icon--yellow-arrow::after {
-  background-image: url("../icons/arrow-top-right_yellow.svg");
+  background-image: url("../../icons/arrow-top-right_yellow.svg");
 }
 .icon--yellow-eye::after {
-  background-image: url("../icons/eye_yellow.svg");
+  background-image: url("../../icons/eye_yellow.svg");
 }
 .icon--grey-arrow-down::after {
-  background-image: url("../icons/arrow-down__grey.svg");
+  background-image: url("../../icons/arrow-down__grey.svg");
 }
 
 .logo {
@@ -956,6 +957,9 @@ button[aria-label]::before {
     width: 100%;
   }
 }
+.resources-preview__subtitle {
+  color: var(--colour-light-yellow);
+}
 
 .advantage-card {
   display: grid;
@@ -1016,8 +1020,8 @@ button[aria-label]::before {
 }
 @media (width <= 63.99875rem) {
   .hero__body {
-    padding-right: 0;
     padding-top: 2.5rem;
+    padding-right: 0;
     padding-bottom: 1.875rem;
   }
 }
@@ -1045,9 +1049,10 @@ button[aria-label]::before {
 }
 .hero__resources-preview {
   grid-area: resources-preview;
+  position: relative;
+  overflow: hidden;
   padding-left: 5rem;
   padding-bottom: 5rem;
-  background: url("../images/resources-preview/bg.png") 0 0/cover no-repeat;
 }
 @media (width <= 90.06125rem) {
   .hero__resources-preview {
@@ -1065,9 +1070,19 @@ button[aria-label]::before {
     width: 100vw;
     margin-left: calc(var(--container-padding-x) * -1);
     padding: 6.25rem 2.5rem 2.5rem;
-    background-image: url("../images/resources-preview/bg_tablet.png");
     background-size: contain;
   }
+}
+.hero__resources-preview .webgl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  outline: none;
+  pointer-events: auto;
+  background-color: var(--colour-yellow);
 }
 .hero__metrics {
   grid-area: metrics;
@@ -1118,6 +1133,14 @@ button[aria-label]::before {
   .hero__advantages-item:not(:last-child) {
     border-bottom: var(--border);
   }
+}
+
+.resources-preview__team,
+.resources-preview__body,
+.resources-preview__button {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
 }
 
 .tag {
@@ -1803,10 +1826,10 @@ button[aria-label]::before {
   --size: 1.5rem;
   width: var(--size);
   height: var(--size);
-  background: url("../icons/star-grey.svg") center/contain no-repeat;
+  background: url("../../icons/star-grey.svg") center/contain no-repeat;
 }
 .rating-view__star.is-active {
-  background: url("../icons/star_yellow.svg") center/contain no-repeat;
+  background: url("../../icons/star_yellow.svg") center/contain no-repeat;
 }
 @media (width <= 90.06125rem) {
   .rating-view__star {
@@ -1988,8 +2011,7 @@ button[aria-label]::before {
     border: 0 !important;
     padding: 0 !important;
     white-space: nowrap !important;
-    -webkit-clip-path: inset(100%) !important;
-            clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
   }
@@ -2506,8 +2528,7 @@ button[aria-label]::before {
     border: 0 !important;
     padding: 0 !important;
     white-space: nowrap !important;
-    -webkit-clip-path: inset(100%) !important;
-            clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
   }
@@ -2524,8 +2545,7 @@ button[aria-label]::before {
     border: 0 !important;
     padding: 0 !important;
     white-space: nowrap !important;
-    -webkit-clip-path: inset(100%) !important;
-            clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
   }
@@ -2561,7 +2581,7 @@ button[aria-label]::before {
   width: var(--size);
   height: var(--size);
   content: "";
-  background: url("../icons/phone.svg") center/contain no-repeat;
+  background: url("../../icons/phone.svg") center/contain no-repeat;
   transition-duration: var(--transition-duration);
 }
 @media (width <= 90.06125rem) {
