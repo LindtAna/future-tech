@@ -49,7 +49,7 @@
             @include square(var(--size));
 
             content:'';
-            background: url('../../icons/phone.svg') center/contain no-repeat;
+            background: url('../icons/phone.svg') center/contain no-repeat;
             transition-duration: var(--transition-duration);
 
             @include laptop{
