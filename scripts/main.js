@@ -5,8 +5,6 @@ import ExpandableContentCollection from './ExpandableContent.js'
 import InputMaskCollection from './InputMask.js'
 import SelectCollection from './Select.js'
 import defineScrollBarWidthCSSVar from './utils/defineScrollBarWidthCSSVar.js'
-import './HeroAnimation.js'
-
 
 new Header()
 new TabsCollection()
@@ -16,3 +14,8 @@ new InputMaskCollection()
 new SelectCollection()
 
 defineScrollBarWidthCSSVar()
+
+
+if (document.querySelector('.hero__resources-preview')) {
+  import('./HeroAnimation.js');
+}

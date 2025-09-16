@@ -4,15 +4,7 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.132.2/examples/js
 
 // Container und Canvas-Element
 const container = document.querySelector('.hero__resources-preview');
-if (!container) {
-  console.error('Container ".hero__resources-preview" nicht gefunden!');
-  throw new Error('Erforderliches DOM-Element fehlt.');
-}
 const canvas = container.querySelector('.webgl');
-if (!canvas) {
-  console.error('Canvas-Element mit Klasse ".webgl" nicht gefunden!');
-  throw new Error('Erforderliches Canvas-Element fehlt.');
-}
 
 // Three.js-Szene initialisieren
 const scene = new THREE.Scene();
