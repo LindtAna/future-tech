@@ -139,7 +139,7 @@ class Tabs extends BaseComponent {
   bindEvents() {
     // Iteriert über Buttons und bindet Click-Handler
     this.buttonElements.forEach((buttonElement, index) => {
-      this.buttonElements.forEach.addEventListener('click', () => this.onButtonClick(index))
+       buttonElement.addEventListener('click', () => this.onButtonClick(index))
     })
     // Bindet keydown-Event an Wurzelelement
     this.rootElement.addEventListener('keydown', this.onKeyDown)
