@@ -120,7 +120,7 @@ class Select extends BaseComponent {
     this.state.isExpanded = false
   }
 
-  // Bestimmt die horizontale Position des Dropdown-Elements
+ 
   fixDropdownPosition() {
     const viewportWidth = document.documentElement.clientWidth // Breite des Viewports
     const halfViewportX = viewportWidth / 2 // X-Koordinate des Viewport-Mittelpunktes
@@ -262,7 +262,7 @@ class Select extends BaseComponent {
     this.state.selectedOptionElement = this.optionElements[this.originalControlElement.selectedIndex] // Aktualisiert das ausgewählte Element
   }
 
-  // Привязывает события к элементам
+  
   bindEvents() {
    MatchMedia.mobile.addEventListener('change', this.onMobileMatchMediaChange) 
     this.buttonElement.addEventListener('click', this.onButtonClick) // Handler für Klick auf den Select-Button
@@ -291,4 +291,5 @@ class SelectCollection {
 // Exportiert SelectCollection als Standardmodul
 export default SelectCollection
 
+//Mehr Dokumentation, Beispiele und Informationen für die weitere Ausarbeitung
 //https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/ 
